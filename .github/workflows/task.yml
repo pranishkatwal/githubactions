@@ -1,0 +1,15 @@
+name:  simple ci to build, push and run docker container from github action
+
+on: [push]
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v2
+   - name: building the docker image 
+     run: |
+      docker pull chef/chefdk
+   - name: Building the docker container
+     run: |
+      docker run -d --name=chef chef/chefdk
