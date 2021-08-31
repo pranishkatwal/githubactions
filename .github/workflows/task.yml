@@ -16,3 +16,6 @@ jobs:
    - name: Building the docker container
      run: |
       docker run -d --name=chef chef/chefdk
+     
+      publish:
+       needs: build
